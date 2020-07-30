@@ -7,5 +7,6 @@ def home():
 @app.errorhandler(404)
 def error404(e):
     #note that we set the 404 status explicity
-    return reader_template('404_html'), 404
-        
+    return render_template('404.html'), 404
+    if __name__ == '__main__':
+  app.run(debug=True)    

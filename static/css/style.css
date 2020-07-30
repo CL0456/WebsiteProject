@@ -1,0 +1,12 @@
+#error404{
+    background: url(../img/img.jpg) no-repeat right center;
+    height: calc(100vh - 56px);
+    display: block;
+    position: left;
+    background-size: 287px 175px;
+}
+#error404 h1{
+    font-size: 8rem;
+    margin-top: 2rem;
+
+}
