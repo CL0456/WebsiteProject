@@ -1,13 +1,16 @@
-{% extends "base.html" %}
-{% block main %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>Welcome to login!</h1>
-            <form action="">
-               .<input 
-            </form>
+    {% extends "base.html" %}
+    {% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Welcome to login!</h1>
+        <form>
+            <label for="username">Username :</label><br>
+                <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+                <input type="text" id="password" name="password"> 
+        </form>  
+            </div>
         </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
