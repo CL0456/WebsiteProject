@@ -4,11 +4,24 @@
     <div class="row">
         <div class="col">
             <h1>Welcome to login!</h1>
-    <form>
-        <label for="username">Username :</label><br>
-            <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label><br>
-            <input type="text" id="password" name="password"> 
+                <!-- Registration -->
+                   <form method="post" action="/register">
+
+                    <!--Username -->
+                    <div class="form-group">
+                        <label for="userinputfield">First name</label>
+                         <input type="text" class="form-control" id="usernameinputfield" aria-describedby="usernameinput" placeholder="Enter Username">
+                            <small id="nameinput" class="form-text text-muted">We'll never share your personal details with anyone else.</small>
+                    </div>
+                    <br>
+
+                    <!--Password-->
+                        <div class="form-group">
+                            <label for="passwordinputfield">Last name</label>
+                            <input type="text" class="form-control" id="passwordinputfield" aria-describedby="passwordinput" placeholder="Enter Password">
+                                <small id="nameinput" class="form-text text-muted">We'll never share your personal details with anyone else.</small>
+                        </div>
+      
     </form>  
         </div>
     </div>
