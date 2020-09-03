@@ -56,7 +56,11 @@ label{
     text-align: center;
    
 }
-
+.form-background{
+    margin-top: 2rem;
+    padding: 2rem;
+    background: #fff;
+}
 
 
 
