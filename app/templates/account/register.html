@@ -12,7 +12,7 @@
                     <div class="form-group">
                         <label for="firstnameinputfield">First name</label>
                          <input type="text" class="form-control" id="firstnameinputfield" aria-describedby="nameinput" placeholder="Enter First name">
-                            <small id="nameinput" class="form-text text-muted">We'll never share your personal details with anyone else.</small>
+                            <small id="nameinput" class="form-text text-muted"></small>
                     </div>
                     <br>
 
@@ -20,13 +20,13 @@
                         <div class="form-group">
                             <label for="lastnameinputfield">Last name</label>
                             <input type="text" class="form-control" id="lastnameinputfield" aria-describedby="nameinput" placeholder="Enter Last name">
-                                <small id="nameinput" class="form-text text-muted">We'll never share your personal details with anyone else.</small>
+                                <small id="nameinput" class="form-text text-muted"></small>
                         </div>
 
                         <!--Email-->
                             <div class="form-group">
                                 <label for="emailinputfield">Email</label>
-                                <input type="text" class="form-control" id="emailinputfield" aria-describedby="nameinput" placeholder="Enter Email">
+                                <input type="email" name="email" class="form-control" id="emailinputfield" aria-describedby="nameinput" placeholder="Enter Email" required>
                                     <small id="nameinput" class="form-text text-muted">We'll never share your personal details with anyone else.</small>
                             </div>
 
@@ -40,22 +40,14 @@
                     <!-- Create Password-->
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">        
+                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">        
                         </div>
                         <br>
-                        <div>
-                            <label for="togglepassword1">Show Password</label>
-                                <input type="checkbox" id ="togglepassword" onclick="myFunction()">
-                        </div>
-                        <h4 class="alert-heading"> </h4>
-                        <p> Your password needs to be at least 8 characters long and include at least one symbol and number.</p>
-                        <hr>
-                        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-                           
+                      
                         <!-- Confirm Password-->
                             <div class="form-group">
                                 <label for="exampleInputPassword2">Confirm Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">
+                                    <input type="password" name="password_confirm" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">
                             </div>
                             <br>
                     <button type="submit" class="btn btn-primary">Submit</button>
