@@ -4,25 +4,32 @@
         <div class="row">
             <div class="login_form_background col-md-6 offset-md-3">
                 <h1>Welcome to login!</h1>
-        <form>
-            <!--Container-->
-            <div class="container">
-            <div>
-                <!---Enter Username-->
-                <label for="username"> Username</label>
-                <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Enter Username">
-                    <small id="username" class="form-text text-muted"> </small>
-            </div>
-            <br>
-            <!-- Enter Password-->
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">        
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>  
+                <form method="POST" action="/login">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p>{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <!--Container-->
+                    <div class="container">
+                    <div>
+                        <!---Enter Username-->
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="username" placeholder="Enter Email">
+                            <small id="username" class="form-text text-muted"> </small>
+                    </div>
+                    <br>
+                    <!-- Enter Password-->
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">        
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>  
             </div>
         </div>
     </div>

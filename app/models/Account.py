@@ -8,6 +8,7 @@ class Account():
 
     def __init__(self):
         self.user = User()
+        return None
 
     def register(self, request):
         """ 
@@ -67,6 +68,8 @@ class Account():
             email = request.form['email']
             password = request.form['password']
 
+            flask_app.logger.info('##########FORM#########')
+            flask_app.logger.info(request.form)
             error = None
             if not email:
                 error = 'An email is required.'
@@ -77,7 +80,7 @@ class Account():
                     database = Database()
                     user = database.login(email, password)
                     # TODO Remove for production
-                    #flask_app.logger.info(user)
+                    flask_app.logger.info(user)
                     self.user.set_user(user)
                 except Exception as err:
                     error = err
@@ -101,7 +104,6 @@ class Account():
                 if 'avatar' in request.files:
                     file = request.files['avatar']
                     if file.filename:
-                        flask_app.logger.info(file)
                         uploader = Upload()
                         avatar = uploader.upload(file, session['user']['localId'])
                         session['user']['avatar'] = avatar

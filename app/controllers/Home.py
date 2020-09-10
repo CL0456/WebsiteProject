@@ -1,13 +1,24 @@
-from app.classes.Database import Database
-from flask import Blueprint, render_template, flash
+from app.models.Image import Image
+from flask import Blueprint, render_template, flash, session
+from flask import current_app as flask_app
 
 bp = Blueprint('home', __name__, url_prefix='', static_folder='../static')
 
 # Load the index page
 @bp.route('/')
 def index():
-    page = 'home'
-    return render_template('home.html', page=page)
+
+    error = None
+    images = []
+    try:
+        image_model = Image()
+        images = image_model.get_images()
+    except Exception as err:
+        error = err
+    if error:
+        flash(str(error))
+    page ='home'
+    return render_template('home.html', images=images, page=page)
 
 @bp.errorhandler(404)
 def error404(e):

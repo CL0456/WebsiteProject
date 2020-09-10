@@ -54,7 +54,7 @@ h1.home{
 
 /*Registration Page*/
 h1.register, 
-h1.{
+h1 {
  text-align: center;
  font-size: 25px;
 }
@@ -78,6 +78,16 @@ label{
     margin-top: 2rem;
     padding: 2rem;
     background: #fff;
+}
+
+.grid-item{
+    width: calc(33.3333% - 30px);
+    float: left;
+    margin-bottom: 30px;
+}
+.grid-item img{
+    width: 100%;
+    height: auto;
 }
 
 

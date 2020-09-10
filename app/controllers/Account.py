@@ -16,8 +16,6 @@ def register():
   
     """
 
-    page = 'register'
-
     if request.method == 'POST':
         error = None
         try:
@@ -34,12 +32,12 @@ def register():
             flash("Please login to get started!")
             return redirect(url_for('account.login'))
 
+    page='register'
+
     return render_template('account/register.html', page=page)
     
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
-    
-    page = 'login'
     
     if request.method == 'POST':
         error = None
@@ -48,11 +46,16 @@ def login():
             user = account.login(request)
         except Exception as err:
             error = err
+            
+        flask_app.logger.info('##########ERROR#########')
+        flask_app.logger.info(error)
         if error:
             flash(str(error))
         else:
             flash("Welcome back!")
             return redirect(url_for('account.profile'))
+
+    page='login'
 
     return render_template('account/login.html', page=page)
     

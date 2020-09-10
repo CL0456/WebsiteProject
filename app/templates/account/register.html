@@ -7,50 +7,34 @@
                 <h1>Register</h1>
                 <!-- Registration -->
                 <form method="post" action="/register">
-
-                    <!--First name-->
-                    <div class="form-group">
-                        <label for="firstnameinputfield">First name</label>
-                         <input type="text" class="form-control" id="firstnameinputfield" aria-describedby="nameinput" placeholder="Enter First name">
-                            <small id="nameinput" class="form-text text-muted"></small>
-                    </div>
-                    <br>
-
-                    <!--Last name-->
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p>{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <!--Container-->
+                    <!--Email-->
                         <div class="form-group">
-                            <label for="lastnameinputfield">Last name</label>
-                            <input type="text" class="form-control" id="lastnameinputfield" aria-describedby="nameinput" placeholder="Enter Last name">
-                                <small id="nameinput" class="form-text text-muted"></small>
+                            <label for="emailinputfield">Email</label>
+                            <input type="email" name="email" class="form-control" id="emailinputfield" aria-describedby="nameinput" placeholder="Enter Email" required>
+                            <small id="nameinput" class="form-text text-muted">We'll never share your personal details with anyone else.</small>
                         </div>
-
-                        <!--Email-->
-                            <div class="form-group">
-                                <label for="emailinputfield">Email</label>
-                                <input type="email" name="email" class="form-control" id="emailinputfield" aria-describedby="nameinput" placeholder="Enter Email" required>
-                                    <small id="nameinput" class="form-text text-muted">We'll never share your personal details with anyone else.</small>
-                            </div>
-
-                    <div>
-                        <!---Create Username-->
-                        <label for="username"> Username</label>
-                        <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Enter Username">
-                            <small id="username" class="form-text text-muted"> </small>
-                    </div>
-                    <br>
+                        <br>
                     <!-- Create Password-->
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">        
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">        
                         </div>
                         <br>
-                      
                         <!-- Confirm Password-->
-                            <div class="form-group">
-                                <label for="exampleInputPassword2">Confirm Password</label>
-                                    <input type="password" name="password_confirm" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">
-                            </div>
-                            <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                            <label for="exampleInputPassword2">Confirm Password</label>
+                            <input type="password" name="password_confirm" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
             </div>
         </div>
