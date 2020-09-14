@@ -6,7 +6,7 @@
             <div class="register_form col-6 offset-md-3">
                 <h1>My Profile</h1>
                 <!-- Profile -->
-                <form method="post" action="/profile">
+                <form method="POST" action="/profile">
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
                             {% for message in messages %}
@@ -18,7 +18,7 @@
                     <!--Container-->
                         <!--firstname-->
                         <div class="form-group">
-                            <label for="firstname">first name</label>
+                            <label for="firstname">First name</label>
                             <input type="text" name="firstname" class="form-control" id="firstname" value="{{ session['user']['firstname'] }}" placeholder="Enter Firstname" required>
                         </div>
                         <br>
@@ -32,11 +32,15 @@
                         <br>
 
                         <!-- avatar -->
-                        <div class="custom-file">
-                            <input type="file" name="avatar" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                            
+                        <div class="form-group">
+                            <input type="file" name="avatar">
+                          </div>
+                          {% if session['user']['avatar'] %} 
+                        <div id="avatar">
+                            <img src="{{ session['user']['avatar'] }}" alt="Your Profile Image">
                         </div>
+                          {% endif %}
+                        
                         <br>
                         <br>
                         <button type="submit" class="btn btn-primary">Submit</button>
