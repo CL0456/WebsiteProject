@@ -13,12 +13,13 @@
     {% block header %}
     <header id="header">
         <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a id="brand" class="navbar-brand" href="#">Snap-Aploosa</a>
+            <a id="brand" class="navbar-brand" href="/"> <img src="../static/img/Snap-Apploosa logo.jpg" id="logo" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav ml-auto">
+                {% if user.logged_in %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-images"></i>Categories
@@ -31,17 +32,28 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-user"></i>Login</a>
+                    <a class="nav-link" href="/logout"><i class="fas fa-user"></i>Log out</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-sliders-h"></i></a>
+                    <a class="nav-link" href="/images"><i class="fas fa-sliders-h"></i> images</a>
                 </li>
+                {% if page != 'home' %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-upload"></i>Upload</a>
+                    <a class="nav-link" href="/images/upload"><i class="fas fa-upload"></i>Upload</a>
                 </li>
+                {% endif %}
+
+                {% else %}
+              
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i>Login</a>
+                    <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile"><i class="fas fa-sign-in-alt"></i>Profile</a>
+                </li>
+
+                {% endif %}
             </ul>
         </nav>
     </header>
