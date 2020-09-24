@@ -1,11 +1,30 @@
     {% extends "base.html" %}
     {% block main %}
-    <div class="form-background col-md-6 offset-md-3">
-      <h1>Welcome back to Snap-Aploosa</h1>
-    </div>
-      <p> The image sharing app that can keep up with your busy lifestyle!</p>
-
+    <div id="text_box">
+      <div class="container main">
+       <div class="row">
+          <div class="login_form_background col-6 offset-md-3">
+      <h1 id="Welcome">Welcome back to Snap-Aploosa</h1>
     
-      
+      <p id="Slogan">The image sharing app that can keep up with your busy lifestyle!</p>
 
-    {% endblock %}
+    </div>
+      </div>
+       </div>
+          </div>
+    {% with messages = get_flashed_messages() %}
+    {# Handle messages here #}
+{% endwith %}
+{% if images %}
+<div class="grid">
+    {% for image_object in images.each() %}
+        {% with image = image_object.val() %}
+        <div class="grid-item" data-image="{{ image|tojson }}">
+            <img src="{{ image.upload_location }}" alt="{{ image.description }}">
+        </div>
+        {% endwith %}
+    {% endfor %}
+    </div>
+{% endif %}
+
+ {% endblock %}

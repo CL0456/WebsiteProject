@@ -5,7 +5,7 @@ body.register{
 }
 body.login,
 body.register{
-    background: url(../img/bg.jpg) no-repeat center center fixed; 
+    background: url(../img/Registration\ Page.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -13,11 +13,38 @@ body.register{
 }
 
 body.home {
-    background: url(../img/img_5.jpg) no-repeat center center fixed;
+    background: url(../img/Wallpaper\ 1..jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+#brand {
+    font-family: 'Carter One', cursive;
+ color: #fff;
+ font-size: 30px;
+
+}
+
+#Slogan {
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 200px;
+    color: azure;
+    text-align: left;
+}
+
+/**404 page **/
+#error{
+    font-size: 30px;
+    text-align: left;
+
+}
+
+#error_page{
+    font-size: 50px;
+    text-align: left;
 }
 
 /*General*/
@@ -49,7 +76,7 @@ height: auto;
 /*Home Page*/
 h1.home{
     text-align: left;
-    font-size: 35px;
+    font-size: 40px;
 }
 
 /*Registration Page*/
@@ -74,6 +101,13 @@ label{
     background: #fff;
 }
 
+#text_box {
+    text-align: center;
+    background-color: aquamarine;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
 .register_form_background{
     margin-top: 2rem;
     padding: 2rem;
@@ -89,7 +123,7 @@ label{
     width: 100%;
     height: auto;
 }
-
+/** styling for Avatar **/
  #avatar {
     width: 33%;
 }
@@ -104,11 +138,12 @@ label{
   height: 33%;
   width: auto;
 }
-
+/** CSS for Upload Form **/
 #Upload_form{
    align-content: center;
 
 }
+
 
 
 
