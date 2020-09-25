@@ -31,7 +31,7 @@ body.home {
     font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 200px;
-    color: azure;
+    color: white;
     text-align: left;
 }
 
@@ -47,13 +47,27 @@ body.home {
     text-align: left;
 }
 
+#error_img{
+ border-radius: 50%;
+    width: 250px;
+        height: auto;
+}
+    
+#error_img {
+    height: 33%;
+      width: auto;
+    }
+
+
 /*General*/
 #main{
 margin-top: 2rem;
 }
+
 cards{
     height: 100%!important;
 }
+
 .cards img{
 width: 100px;
 height: auto;
@@ -85,16 +99,19 @@ h1 {
  text-align: center;
  font-size: 25px;
 }
+
 label{
     width: 100%;
     display: inline-block;
     text-align: left;
 }
+
 /*Input Fields*/
 #content{
     text-align: center;
    
 }
+
 .login_form_background{
     margin-top: 2rem;
     padding: 2rem;
@@ -103,7 +120,7 @@ label{
 
 #text_box {
     text-align: center;
-    background-color: aquamarine;
+    background-color: #fff;
     margin-top: 2rem;
     padding: 2rem;
 }
@@ -123,6 +140,7 @@ label{
     width: 100%;
     height: auto;
 }
+
 /** styling for Avatar **/
  #avatar {
     width: 33%;
@@ -138,11 +156,15 @@ label{
   height: 33%;
   width: auto;
 }
+
 /** CSS for Upload Form **/
 #Upload_form{
    align-content: center;
+   color: white;
 
 }
+
+
 
 
 
