@@ -1,4 +1,4 @@
-from flask import Blueprint, flash, redirect, render_template, request, url_for, session
+from flask import Blueprint, flash, redirect, render_template, request, url_for, session, jsonify
 from flask import current_app as flask_app
 from app.models.Account import Account
 
@@ -31,7 +31,6 @@ def register():
             # Registration successful so redirect
             flash("Please login to get started!")
             return redirect(url_for('account.login'))
-
     page='register'
 
     return render_template('account/register.html', page=page)
@@ -46,16 +45,13 @@ def login():
             user = account.login(request)
         except Exception as err:
             error = err
-            
-        flask_app.logger.info('##########ERROR#########')
-        flask_app.logger.info(error)
         if error:
             flash(str(error))
         else:
             flash("Welcome back!")
             return redirect(url_for('account.profile'))
-
     page='login'
+    
 
     return render_template('account/login.html', page=page)
     
@@ -80,3 +76,21 @@ def logout():
     account = Account()
     account.logout()
     return redirect(url_for('home.index'))
+
+@bp.route('/like', methods=['GET'])
+def like():
+
+    image_id = request.args.get('image_id')
+    like = request.args.get('like')
+    flask_app.logger.info('## LIKE VAL CT ##')
+    flask_app.logger.info(request.args.get('like'))
+    flask_app.logger.info(like)
+    response = ''
+
+    try:
+        account = Account()
+        response = account.like(image_id, like, request)
+    except Exception as err:
+        response = str(err)
+    
+    return jsonify(response)

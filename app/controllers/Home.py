@@ -17,7 +17,9 @@ def index():
         error = err
     if error:
         flash(str(error))
+
     page ='home'
+
     return render_template('home.html', images=images, page=page)
 
 @bp.errorhandler(404)

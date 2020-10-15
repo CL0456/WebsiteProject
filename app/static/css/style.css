@@ -5,7 +5,7 @@ body.register{
 }
 body.login,
 body.register{
-    background: url(../img/Registration\ Page.jpg) no-repeat center center fixed; 
+    background: url(../img/RegistrationPage.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -162,6 +162,15 @@ label{
    align-content: center;
    color: white;
 
+}
+
+.dropdown-item{
+    color: #fff;
+}
+
+#navbar i{
+    margin-right: 5px;
+    
 }
 
 

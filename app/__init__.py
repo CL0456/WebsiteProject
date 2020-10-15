@@ -2,7 +2,6 @@ import os
 from flask import Flask, session, render_template, request, redirect
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-UPLOAD_FOLDER = 'static/uploads'
 
 def create_app(test_config=None):
     # create and configure the app
