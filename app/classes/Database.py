@@ -89,7 +89,9 @@ class Database():
             raise Exception(error)
         else:
             return image.val()
-
+            self.readable_errors = {
+                 "FILE_NOT_FOUND": "No file selcted. Please Select an Image.",
+            }
     def save_image(self, image_data, image_id):
         
         flask_app.logger.info('####################### image_data #####################')
