@@ -162,6 +162,8 @@ class Image():
             return image_id
 
     def update(self, image_id, request):
+        flask_app.logger.info('####################### request.form #####################')
+        flask_app.logger.info(request.form)
         
         name            = request.form['name']
         description     = request.form['description']
@@ -169,6 +171,8 @@ class Image():
         image_filter    = request.form['filter']
         created_at      = request.form['created_at'] 
         upload_location = request.form['upload_location']  
+
+
 
         # Validates required registration fields
         error = None
@@ -203,6 +207,7 @@ class Image():
                         "created_at":           created_at
                     }
                     database = Database()
+                    
                     uploaded = database.save_image(image_data, image_id)
                 except Exception as err:
                     error = err

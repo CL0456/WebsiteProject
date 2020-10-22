@@ -7,26 +7,32 @@
 				<div class="col-6 offset-md-3">
 					<form class="form-upload login_form_background" method="POST">
 						<h1 class="mb-3 font-weight-normal">Image Update</h1>
-						{% with messages = get_flashed_messages() %}
-							{# Handle messages here #}
+						{% with messages = get_flashed_messages() %}					
+							{% if messages %}
+								{% for message in messages %}
+								<p>{{ message }}</p>
+								{% endfor %}
+							{% endif %}
 						{% endwith %}
 						<div class="form-group">
 							<label>Name</label>
 							<input type="text" name="name" class="form-control" value="{{ image.name }}" required/>
 						</div>
+						<div class="form-group">
+							<label>Description</label>
+							<input type="text" name="description" class="form-control" value="{{ image.description }}" required/>
+						</div>
 						<div id="image">
-							<img src="{{ image.upload_location }}" alt="{{ image.description }}">
+							<figure class="filter-{{ image.filter }}">
+								<img src="{{ image.upload_location }}" alt="{{ image.description }}">
+							</figure>
 						</div>
 						<input type="hidden" name="image_id" value="{{ image.id }}"/>
 						<input type="hidden" name="upload_location" value="{{ image.upload_location }}"/>
 						<input type="hidden" name="created_at" value="{{ image.created_at }}"/>
 						<div class="form-group">
-							<label>Tags - add a comma after each tag.</label>
-							<input type="text" name="tags" class="form-control" required/>
-						</div>
-						<div class="form-group">
 							<label>Categories</label>
-							<select name="category" class="custom-select" required>
+							<select id="category" name="category" class="custom-select" data-category="{{ image.category }}" required>
 								<option value="abstract">Abstract</option>
 								<option value="animals-wildlife">Animals/Wildlife</option>
 								<option value="the-arts">The Arts</option>
@@ -57,7 +63,7 @@
 						</div>
 						<div class="form-group">
 							<label>Filter</label>
-							<select name="filter" class="custom-select" required>
+							<select id="filter-select" name="filter" class="custom-select" data-filter="{{ image.filter }}" required>
 								<option value="_1977">1977</option>
 								<option value="aden">Aden</option>
 								<option value="amaro">Amaro</option>
@@ -99,7 +105,7 @@
 								<option value="xpro2">X-pro II</option>
 							</select>
 						</div>
-						<button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button>
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
 					</form>
 				</div>
 			</div>

@@ -11,7 +11,7 @@ body.register{
     -o-background-size: cover;
     background-size: cover;
 }
-
+/** Styling for Homepage Background **/
 body.home {
     background: url(../img/Wallpaper\ 1..jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -19,7 +19,7 @@ body.home {
     -o-background-size: cover;
     background-size: cover;
 }
-
+/** Styling for Logo **/
 #brand {
     font-family: 'Carter One', cursive;
  color: #fff;
@@ -34,8 +34,7 @@ body.home {
     color: white;
     text-align: left;
 }
-
-/**404 page **/
+/** Styling for 404 Page **/
 #error{
     font-size: 30px;
     text-align: left;
@@ -59,7 +58,7 @@ body.home {
     }
 
 
-/*General*/
+/*General styling for website*/
 #main{
 margin-top: 2rem;
 }
@@ -111,13 +110,14 @@ label{
     text-align: center;
    
 }
-
+/* CSS for login form */
 .login_form_background{
     margin-top: 2rem;
     padding: 2rem;
     background: #fff;
 }
 
+/* CSS for login form */
 #text_box {
     text-align: center;
     background-color: #fff;
@@ -125,6 +125,7 @@ label{
     padding: 2rem;
 }
 
+/* CSS for Register form */
 .register_form_background{
     margin-top: 2rem;
     padding: 2rem;
@@ -141,9 +142,9 @@ label{
     height: auto;
 }
 
-/** styling for Avatar **/
+/** CSS for Avatar **/
  #avatar {
-    width: 33%;
+    width: 100%;
 }
 
 #avatar img{
@@ -152,10 +153,7 @@ label{
     height: auto;
 }
 
-#avatar img {
-  height: 33%;
-  width: auto;
-}
+
 
 /** CSS for Upload Form **/
 #Upload_form{
@@ -164,6 +162,7 @@ label{
 
 }
 
+/* CSS for navbar items */
 .dropdown-item{
     color: #fff;
 }

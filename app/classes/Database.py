@@ -41,12 +41,15 @@ class Database():
 
     # Image Requests
     def get_images(self, limit=20, user_id=False):
-        
+        """ 
+        - Pulls last 20 images from Firebase. 
+        -   Organises them by User ID or from all users
+        """
         try:
             if (user_id):
                 images = self.db.child("images").order_by_child("user_id").equal_to(user_id).limit_to_first(limit).get()
             else:
-                images = self.db.child("images").order_by_child("created_at").limit_to_first(limit).get()
+                images = self.db.child("images").order_by_child("user_id").limit_to_first(limit).get()
 
             flask_app.logger.info('####################### images val #####################')
             flask_app.logger.info(images.val())
@@ -88,6 +91,9 @@ class Database():
             return image.val()
 
     def save_image(self, image_data, image_id):
+        
+        flask_app.logger.info('####################### image_data #####################')
+        flask_app.logger.info(image_data)
         try:
             self.db.child("images").child(image_id).set(image_data)
         except Exception as err:
@@ -138,6 +144,9 @@ class Database():
         raise Exception(readable_error)
 
     def get_readable_error(self, error):
+        """ 
+        Presents an error message if a request error occurs 
+        """
         error_json = error.args[1]
         error_messsage = json.loads(error_json)['error']['message']
         if error_messsage in self.readable_errors.keys(): 
