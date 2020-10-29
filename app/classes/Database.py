@@ -62,6 +62,10 @@ class Database():
             self.process_error(err)
 
     def get_category_images(self, category, limit=20):
+        """
+        Requests all data regarding images in a category
+        """
+
         try:
             images = self.db.child("images").order_by_child("category").equal_to(category).limit_to_first(limit).get()
 
@@ -74,6 +78,9 @@ class Database():
             self.process_error(err)
         
     def get_image(self, image_id):
+        """
+        Requests all data regarding an image
+        """
         
         error = None
         image = False
@@ -89,9 +96,7 @@ class Database():
             raise Exception(error)
         else:
             return image.val()
-            self.readable_errors = {
-                 "FILE_NOT_FOUND": "No file selcted. Please Select an Image.",
-            }
+        
     def save_image(self, image_data, image_id):
         
         flask_app.logger.info('####################### image_data #####################')
@@ -117,6 +122,11 @@ class Database():
 
     # User and Account Requests
     def register(self, user_data, password):
+        """ 
+        User Attempts to register
+
+        """
+
         try:
             user_auth = self.auth.create_user_with_email_and_password(user_data['email'], password)
             user_data['localId'] = user_auth['localId']
@@ -126,6 +136,9 @@ class Database():
             self.process_error(err)
 
     def login(self, email, password):
+        """
+        User attempts to login
+        """
         try:
             user_auth = self.auth.sign_in_with_email_and_password(email, password)
             user = self.db.child("users").child(user_auth['localId']).get().val()
@@ -134,6 +147,9 @@ class Database():
             self.process_error(err)
 
     def update_user(self, user_data):
+        """
+        User makes a request to change their account details
+        """
         try:
             self.db.child("users").child(user_data['localId']).update(user_data)
             return
@@ -141,6 +157,9 @@ class Database():
             self.process_error(err)
  
     def process_error(self, error):
+        """
+        Takes firebase error and turns it into a readable error.
+        """
         flask_app.logger.info(error)
         readable_error = self.get_readable_error(error)
         raise Exception(readable_error)

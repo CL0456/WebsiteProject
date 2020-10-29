@@ -63,12 +63,12 @@ $(document).ready(function(){
 		var filter = $('#filter-select').data('filter');
 		$('#filter-select').val(filter);
 	}
-	// Loads correct selected value for filter //
+	// Loads correct selected value for category //
 	if ($('#category').length > 0 ) {
 		var category = $('#category').data('category');
 		$('#category').val(category);
 	}
-	// Gives and alters live preview of Filter //
+	// Alters live preview of Filter //
 	$('#filter-select').change(function(e) {
 		var new_filter = 'filter-' + this.value;
 		$('#image figure').removeClass();

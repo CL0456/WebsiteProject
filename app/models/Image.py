@@ -11,7 +11,9 @@ class Image():
         return None
 
     def get_images(self, limit=20):
-        
+        """
+        Attempts to retrieve images from database
+        """
         error = None
         images = False
 
@@ -26,24 +28,35 @@ class Image():
         if error:
             raise Exception(error)
         else:
+            # successfully returned Pyrebase object.
             return images
 
     def get_category_images(self, category, limit=20):
         
+        """
+        Gets the images for the category that gets passed in limits the result 
+        set to 20 images
+        """
+        # Set inital variables
         error = None
         images = False
         
+        # Tries to get the images
         try:
             database = Database()
             images = database.get_category_images(category, limit)
 
+        # Failed to get images, raise an exception.
         except Exception as err:
             flask_app.logger.info(err)
             error = err
 
+        # Check if we have an error.
         if error:
+            #We have an error, pass it back to the controller
             raise Exception(error)
         else:
+            #We have no errors, return the images
             return images
 
     def get_image(self, image_id):
@@ -79,10 +92,13 @@ class Image():
         if error:
             raise Exception(error)
         else: 
+            
             return
-
+  
     def get_user_images(self, limit=20):
-        
+        """
+         Retrieves users images from the database
+        """
         error = None
         images = False
         user_id = False
@@ -95,14 +111,16 @@ class Image():
         except Exception as err:
             flask_app.logger.info(err)
             error = err
-
+       
         if error:
             raise Exception(error)
         else:
             return images
 
     def upload(self, request):
-
+        """
+        Request to upload image is sent to the database
+        """
         image_id        = str(uuid.uuid1())
         name            = request.form['name']
         description     = request.form['description']
@@ -182,17 +200,23 @@ class Image():
             user_id     = session['user']['localId']
             user_name   = session['user']['first_name'] + " " + session['user']['last_name']
             user_avatar = session['user']['avatar']
+        # User tries to edit image logged out.
         else: 
             error = 'You must be logged in to update an image.'
-
+        # User forgets to give image a name
         if not error:
             if not name:
-                error = 'An name is required.'
+                error = 'A name is required.'
+            # User forgets to give image a discription.
             elif not description:
                 error = 'A description is required.'
+            # User forgets to give image a category.
             elif not category:
                 error = 'A category is required.'
             else:
+                """
+                Creates image object for the database
+                """
                 try:
                     image_data = {
                         "id":                   image_id,
